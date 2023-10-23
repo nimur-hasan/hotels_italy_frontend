@@ -95,7 +95,7 @@ export default function Navbar({profile, setProfile}:Props) {
 
           <Flex display={{ base: 'none', md: 'flex' }} alignItems={'center'} ml={10}>
             <DesktopNav />            
-            <SendEmail/>
+            {profile?.email && <SendEmail/>}
           </Flex>
         </Flex>
 
