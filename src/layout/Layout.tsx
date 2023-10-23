@@ -18,6 +18,7 @@ export default function Layout({children, profile, setProfile}:Props) {
     const checkUser = async() => {
         const token = await localStorage.getItem('token')
         const user = await localStorage.getItem('user')
+        if(location.pathname == '/auth/signup') return
         if(!token || !user) navigate('/auth/signin')
 
         if(user){
