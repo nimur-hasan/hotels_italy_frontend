@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import ERR404 from './page/404/ERR404';
+import Home from './page/Home/Home';
+import Signin from './page/Signin/Signin';
+import Signup from './page/Signup/Signup';
+import Layout from './layout/Layout';
+import VerifyEmail from './page/VerifyEmail/VerifyEmail';
+import FindHotel from './page/FindHotel/FindHotel';
+import SubmitHotel from './page/SubmitHotel/SubmitHotel';
 
-function App() {
+
+export default function App() {
+  const [profile, setProfile] = useState({})
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <BrowserRouter basename="/">
+      <Layout profile={profile} setProfile={setProfile}>
+        <Routes>
+          <Route path="/" /> {/* 👈 Renders at /app/ */}
 
-export default App;
+          <Route index element={<Home/>}/> 
+          <Route path="/auth/*" element={<Navigate to='/auth/signin'/>}/> 
+          <Route path="/auth/signin" element={<Signin setProfile={setProfile}/>}/> 
+          <Route path="/auth/signup" element={<Signup/>}/>                   
+          <Route path="/auth/verify-email" element={<VerifyEmail/>}/>  
+
+          <Route path="/find-hotels" element={<FindHotel profile={profile}/>}/>                   
+          <Route path="/submit-hotels" element={<SubmitHotel/>}/>                   
+
+          <Route path="*" element={<ERR404/>} />
+        </Routes>
+      </Layout>
+      </BrowserRouter>
+  )
+}
