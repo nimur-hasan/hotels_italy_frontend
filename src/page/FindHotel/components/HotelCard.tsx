@@ -1,4 +1,4 @@
-import { Box, Checkbox, FormControl, FormLabel, Icon, IconButton, Input, Select, Textarea, useColorModeValue } from '@chakra-ui/react'
+import { Box, Checkbox, FormControl, FormLabel, Icon, IconButton, Input, Select, Skeleton, Textarea, useColorModeValue } from '@chakra-ui/react'
 import React from 'react'
 import { HiOutlineMail } from 'react-icons/hi';
 import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure } from "@chakra-ui/react"
@@ -25,14 +25,16 @@ export default function HotelCard({hotel, profile}:Props) {
         >
             <Box flexGrow={'1'}>
             <Box><b>Attrezzature:</b> {hotel.attrezzature}</Box>
+            <Box><b>Classificazione:</b> {hotel.classificazione}</Box>
             <Box><b>Categoria:</b> {hotel.categoria}</Box>
             <Box><b>Comune:</b> {hotel.comune}</Box>
-            <Box><b>Posta Elettronica:</b> {hotel.posta_elettronica}</Box>
-            <Box><b>Indirizzo Internet:</b> {hotel.indirizzo_internet}</Box>
+            <Box display={'flex'}><b>Telefono:</b> <Skeleton>+8801784905517</Skeleton></Box>
+            <Box display={'flex'}><b>Fax:</b> <Skeleton>+8801784905517</Skeleton></Box>            
+            <Box display={'flex'}><b>Posta Elettronica:</b> <Skeleton>{hotel.posta_elettronica}</Skeleton></Box>
+            <Box display={'flex'}><b>Indirizzo Internet:</b> <Skeleton>Indirizzo Internet:</Skeleton></Box>
             </Box>
-            <Box ml={'16px'}>
-                {/* <IconButton onClick={onOpen} aria-label='Email' size={'lg'} icon={<Icon size={'44px'} as={HiOutlineMail}/>} /> */}
-                <SendEmail/>
+            <Box ml={'16px'}>                
+                {/* <SendEmail/> */}
             </Box>
         </Box>
 

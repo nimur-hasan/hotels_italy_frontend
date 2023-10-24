@@ -18,7 +18,7 @@ export default function App() {
         <Routes>
           <Route path="/" /> {/* 👈 Renders at /app/ */}
 
-          <Route index element={<Home/>}/> 
+          <Route index element={<Navigate to={'/find-hotels'}/>}/> 
           <Route path="/auth/*" element={<Navigate to='/auth/signin'/>}/> 
           <Route path="/auth/signin" element={<Signin setProfile={setProfile}/>}/> 
           <Route path="/auth/signup" element={<Signup/>}/>                   

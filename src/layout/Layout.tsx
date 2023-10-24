@@ -28,7 +28,7 @@ export default function Layout({children, profile, setProfile}:Props) {
 
     
     useEffect(() => {
-        checkUser()
+        // checkUser()
     }, [location.pathname])
 
   return (
