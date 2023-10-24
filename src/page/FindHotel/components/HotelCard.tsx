@@ -30,7 +30,7 @@ export default function HotelCard({hotel, profile}:Props) {
             <Box><b>Comune:</b> {hotel.comune}</Box>
             <Box display={'flex'}><b>Telefono:</b> <Skeleton>+8801784905517</Skeleton></Box>
             <Box display={'flex'}><b>Fax:</b> <Skeleton>+8801784905517</Skeleton></Box>            
-            <Box display={'flex'}><b>Posta Elettronica:</b> <Skeleton>{hotel.posta_elettronica}</Skeleton></Box>
+            <Box display={'flex'}><b>Posta Elettronica:</b> <Skeleton>example@gmail.com</Skeleton></Box>
             <Box display={'flex'}><b>Indirizzo Internet:</b> <Skeleton>Indirizzo Internet:</Skeleton></Box>
             </Box>
             <Box ml={'16px'}>                

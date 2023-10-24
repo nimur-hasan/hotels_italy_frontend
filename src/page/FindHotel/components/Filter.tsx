@@ -146,7 +146,7 @@ export default function Filter({setFilterdHotels}:Props) {
       bg={useColorModeValue('gray.50', 'gray.800')}>
       <Container>
         <Accordion allowMultiple width="100%" maxW="lg" rounded="lg">
-          <AccordionItem>
+          <AccordionItem >
             <AccordionButton
               display="flex"
               alignItems="center"
@@ -160,6 +160,11 @@ export default function Filter({setFilterdHotels}:Props) {
                 cateroies.map((category:any, index) => (
                   <Box textTransform={'uppercase'} my={'8px'}><Checkbox onChange={handleCategoriesChange} value={category.name}>{category.name} ({category.count})</Checkbox></Box>
                 ))
+              }
+               {
+                cateroies.length == 0 && <Box>
+                  Loading...
+                </Box>
               }
             </AccordionPanel>
           </AccordionItem>
@@ -177,6 +182,11 @@ export default function Filter({setFilterdHotels}:Props) {
                 provincias.map((prov:any, index) => (
                   <Box textTransform={'uppercase'} my={'8px'}><Checkbox onChange={handleProvinciasChange} value={prov.name}>{prov.name} ({prov.count})</Checkbox></Box>
                 ))
+              }
+              {
+                provincias.length == 0 && <Box>
+                  Loading...
+                </Box>
               }
             </AccordionPanel>
           </AccordionItem>
